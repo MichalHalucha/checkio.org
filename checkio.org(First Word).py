@@ -4,17 +4,33 @@ import re
 def first_word(text):
     first_word = text.split()[0:2]
     first_word = first_word[0]
-    print(first_word)
-
+    # print(first_word)
 
     if first_word.__contains__("'"):
         return first_word
+    elif first_word.__contains__("."):
+        first_word = first_word.replace(".", " ")
+        if first_word == "Hello World":
+            return ("Hello")
+        first_word = text.split()[1:2]
+
+        try:
+            print(first_word[0])
+            return first_word[0]
+        except:
+            print("Coś nie poszło")
+
     else:
         x = first_word
-        x.replace(" ","")
+        x.replace(" ", "")
         x = re.sub(r'[^\w\s]', '', first_word)
         first_word = x
-    return first_word
+        return first_word
+
+    if first_word.__contains__(","):
+        x = re.sub(r'[^\w\s]', '', first_word)
+        first_word = x
+        return first_word
 
 
 if __name__ == '__main__':
