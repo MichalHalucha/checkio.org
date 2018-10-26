@@ -1,6 +1,5 @@
 import re
 
-
 def first_word(text):
     first_word = text.split()[0:2]
     first_word = first_word[0]

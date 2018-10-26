@@ -6,7 +6,6 @@ def correct_sentence(text: str) -> str:
         print(x)
     return x
 
-
 if __name__ == '__main__':
     print("Example:")
     print(correct_sentence("hi"))
