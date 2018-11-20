@@ -21,6 +21,7 @@ def check_word(word,statuss):
 
 def checkio(text):
     text = text.upper()
+    #tokens = re.split("[^A-Z0-9]+", text)
     wordList = re.sub("[^\w]", " ", text).split()
     result = 0
     for item in wordList:
