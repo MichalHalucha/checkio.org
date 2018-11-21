@@ -1,7 +1,7 @@
 import sendgrid
 from sendgrid.helpers.mail import Email,  Mail, Content
 
-API_KEY = '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'
+API_KEY = '########################################################'
 SUBJECT = 'Welcome'
 BODY = 'Hi {}'
 
