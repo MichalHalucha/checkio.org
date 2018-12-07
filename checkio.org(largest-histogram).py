@@ -1,15 +1,10 @@
 def largest_histogram(histogram):
-
-    result, width = 0, len(histogram) + 1
-
-    for i in range(1, width):
-        print(i)
-        for j in range(width - i):
-            print(j)
-            rect = i * min(histogram[j:][:i])
-            result = max(result, rect)
-
-    return result
+    largest = 0
+    for i in range(len(histogram)):
+        for j in range(i+1):
+            base = histogram[j:j+len(histogram)-i]
+            largest = max(largest, min(base)*len(base))
+    return largest
 
 
 if __name__ == "__main__":
