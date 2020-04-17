@@ -1,0 +1,45 @@
+from typing import List
+
+class Train:
+    def __init__(self, distance, max_speed, steps):
+        self.distance = distance
+        self.max_speed = max_speed
+        self.steps = steps
+        print(distance, max_speed)
+
+    def calculate(self, a, b, my_list):
+        print(sum(my_list), "-------------SUMA")
+        print(self.distance, "------------DYSTANS")
+        if sum(my_list) < self.distance-1:
+            a += 1
+            b += 1
+            my_list.append(a)
+            my_list.append(b)
+            print(my_list, "----------- Moja lista")
+            self.calculate(a, b, my_list)
+        my_list.append(a)
+        print(my_list)
+        return len(my_list)
+
+    def time_to_station(self):
+        x = 0
+        if self.steps < 2:
+            self.steps = self.calculate(0, 0, [])
+
+
+def fast_train(sections: List[List[int]]) -> int:
+
+    print(sections[0])
+    steps = len(sections)
+    train = Train(sections[0][0], sections[0][1], steps)
+    train.time_to_station()
+    print(train.steps, "-wynik")
+    return train.steps
+
+
+if __name__ == '__main__':
+
+    assert fast_train([(4, 3)]) == 3
+    assert fast_train([(9, 10)]) == 5
+    assert fast_train([(5, 5), (4, 2)]) == 6
+    print("Coding complete? Click 'Check' to earn cool rewards!")
