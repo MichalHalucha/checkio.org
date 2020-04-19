@@ -17,8 +17,11 @@ class Train:
             my_list.append(b)
             print(my_list, "----------- Moja lista")
             self.calculate(a, b, my_list)
-        my_list.append(a)
         print(my_list)
+        while sum(my_list) != self.distance:
+            my_list.remove(max(my_list))
+            print(my_list)
+            print(len(my_list), "dlugosc")
         return len(my_list)
 
     def time_to_station(self):
@@ -26,13 +29,12 @@ class Train:
         if self.steps < 2:
             self.steps = self.calculate(0, 0, [])
 
-
 def fast_train(sections: List[List[int]]) -> int:
-
     print(sections[0])
     steps = len(sections)
     train = Train(sections[0][0], sections[0][1], steps)
     train.time_to_station()
+
     print(train.steps, "-wynik")
     return train.steps
 
