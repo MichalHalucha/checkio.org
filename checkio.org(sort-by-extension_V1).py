@@ -28,7 +28,7 @@ def sort_by_ext(files: List[str]) -> List[str]:
         else:
             counter += 1
             continue
-    #touplelist = sorted(touplelist, key=lambda tup: tup[1][0])
+    #touplelist = sorted(touplelist, key=lambda tup: tup[1])
     touplelist = sorted(touplelist, key=operator.itemgetter(1, 0))
     print(touplelist, " ------------WYNIK")
     touplelist = restlist1 + touplelist
@@ -58,4 +58,5 @@ if __name__ == '__main__':
     assert sort_by_ext(['1.cad', '1.', '1.aa']) == ['1.', '1.aa', '1.cad']
     assert sort_by_ext(['1.cad', '1.bat', '1.aa', '1.aa.doc']) == ['1.aa', '1.bat', '1.cad', '1.aa.doc']
     assert sort_by_ext(['1.cad', '1.bat', '1.aa', '.aa.doc']) == ['1.aa', '1.bat', '1.cad', '.aa.doc']
+    assert sort_by_ext([".config", "my.doc", "1.exe", "345.bin", "green.bat", "format.c", "no.name.", "best.test.exe"])
     print("Coding complete? Click 'Check' to earn cool rewards!")
